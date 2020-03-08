@@ -55,7 +55,7 @@
         totalResults:0,
         totalPages:0,
         search: {
-          query: 'a',
+          query: '',
           type: ''
         },
         movies:[],
@@ -71,7 +71,7 @@
         axios.get(process.env.apiBaseUrl, {
           params: {
             'apikey': process.env.apiKey,
-            's': this.search.query,
+            's': this.search.query || 'a',
             'page': this.currentPage,
             ...(this.search.type && {'type': this.search.type}),
           }
