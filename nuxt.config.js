@@ -16,7 +16,7 @@ module.exports = {
   },
   loading: false,
   env: {
-    apiBaseUrl: 'http://www.omdbapi.com/',
+    apiBaseUrl: 'https://www.omdbapi.com/',
     apiKey: '5e69291'
   },
   plugins: ['@/plugins/axios'],
