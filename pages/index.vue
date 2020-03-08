@@ -55,7 +55,7 @@
         totalResults:0,
         totalPages:0,
         search: {
-          query: '',
+          query: 'a',
           type: ''
         },
         movies:[],
