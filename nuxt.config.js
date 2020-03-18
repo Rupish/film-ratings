@@ -22,6 +22,7 @@ module.exports = {
   plugins: [
     '~/plugins/axios'
   ],
+  mode: 'spa',
   /*
   ** Build configuration
   */
