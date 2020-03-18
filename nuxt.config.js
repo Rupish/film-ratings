@@ -19,7 +19,9 @@ module.exports = {
     apiBaseUrl: 'https://www.omdbapi.com/',
     apiKey: '5e69291'
   },
-  plugins: ['@/plugins/axios'],
+  plugins: [
+    '~/plugins/axios'
+  ],
   /*
   ** Build configuration
   */

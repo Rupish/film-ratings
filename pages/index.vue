@@ -63,6 +63,18 @@
         error: false
       }
     },
+    computed: {
+      favorites() {
+        return this.$store.state.favorites;
+      }
+    },
+    mounted() {
+      this.$store.commit('setFavs');
+      console.log("mounted");
+      this.currentPage = parseInt(this.$route.query.page);
+      this.search.query = this.$route.query.query;
+      this.getMovies();
+    },
     methods: {
       getMovies: function (fromPageOne) {
         if (fromPageOne) this.currentPage = 1;
@@ -77,6 +89,11 @@
           }
         })
           .then(response => {
+            // this.$route.params = {
+            //   query: this.search.query,
+            //   page: this.currentPage,
+            // };
+            this.$router.push({ path: '/', query: {query: this.search.query, page: this.currentPage,}});
             this.loading = false;
             response.data.Search = this.setFavorites(response.data);
             this.movies = response.data;
@@ -92,7 +109,7 @@
       setFavorites: function (data) {
         if (data.Search) {
           let items = data.Search;
-          let favorites = JSON.parse(localStorage.getItem('favorites'));
+          let favorites = this.favorites;
           if ("undefined" === typeof favorites || null == favorites || "" === favorites) return items;
           return items.map(item => {
             if (favorites[item.imdbID]) item["favorite"] = true;
