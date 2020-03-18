@@ -6,8 +6,6 @@ import {
   globalHandleError
 } from './utils'
 
-import NuxtBuildIndicator from './components/nuxt-build-indicator'
-
 import _6f6c098b from '../layouts/default.vue'
 
 const layouts = { "_default": _6f6c098b }
@@ -45,7 +43,6 @@ export default {
       }
     }, [
 
-      h(NuxtBuildIndicator),
       transitionEl
     ])
   },
@@ -134,10 +131,6 @@ export default {
     },
 
     setLayout (layout) {
-      if(layout && typeof layout !== 'string') {
-        throw new Error('[nuxt] Avoid using non-string value as layout property.')
-      }
-
       if (!layout || !layouts['_' + layout]) {
         layout = 'default'
       }
