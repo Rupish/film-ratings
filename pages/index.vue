@@ -71,8 +71,8 @@
     mounted() {
       this.$store.commit('setFavs');
       console.log("mounted");
-      this.currentPage = parseInt(this.$route.query.page);
-      this.search.query = this.$route.query.query;
+      this.currentPage = this.$route.query.page ? parseInt(this.$route.query.page) : 0;
+      this.search.query = this.$route.query.query ? this.$route.query.query : '';
       this.getMovies();
     },
     methods: {

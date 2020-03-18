@@ -1,23 +1,23 @@
 <template>
   <div>
-    <nuxt-link :to="{path:'/film/'+id}">
-      <div class="item">
+    <div class="item">
+      <nuxt-link :to="{path:'/film/'+id}">
         <h2>{{ title }}</h2>
         <img v-if="url!=='N/A'" :src="url" width="235" height="300"/>
         <img v-if="url==='N/A'" src="../assets/images/no-image.png" width="235" height="300"/>
         <div class="date">
           <span class="quant-text">Year: {{ date }}</span>
         </div>
-        <button class="submit" @click="setFavorite()">
-          <span class="fav">{{fav? 'Unfavorite' : 'Favorite' }}</span>
-          <svg class="heart-loader" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 90 90" version="1.1">
-            <g class="heart-loader">
-              <path v-bind:class="{'heart-loader-path-filled': fav,  'heart-loader-path': !fav}" stroke-width="2" d="M60,30 a30,30 0 0,1 0,60 L0,90 0,30 a30,30 0 0,1 60,0" />
-            </g>
-          </svg>
-        </button>
-      </div>
-    </nuxt-link>
+      </nuxt-link>
+      <button class="submit" @click="setFavorite()">
+        <span class="fav">{{fav? 'Unfavorite' : 'Favorite' }}</span>
+        <svg class="heart-loader" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 90 90" version="1.1">
+          <g class="heart-loader">
+            <path v-bind:class="{'heart-loader-path-filled': fav,  'heart-loader-path': !fav}" stroke-width="2" d="M60,30 a30,30 0 0,1 0,60 L0,90 0,30 a30,30 0 0,1 60,0" />
+          </g>
+        </svg>
+      </button>
+    </div>
   </div>
 </template>
 
